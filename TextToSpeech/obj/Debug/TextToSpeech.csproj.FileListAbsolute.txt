@@ -1,0 +1,9 @@
+c:\users\spencer\documents\visual studio 2013\Projects\TextToSpeech\TextToSpeech\bin\Debug\TextToSpeech.exe.config
+C:\Users\Spencer\Documents\Git\stunning-garbanzo\TextToSpeech\bin\Debug\TextToSpeech.exe.config
+C:\Users\Spencer\Documents\Git\stunning-garbanzo\TextToSpeech\bin\Debug\TextToSpeech.exe
+C:\Users\Spencer\Documents\Git\stunning-garbanzo\TextToSpeech\bin\Debug\TextToSpeech.pdb
+C:\Users\Spencer\Documents\Git\stunning-garbanzo\TextToSpeech\obj\Debug\TextToSpeech.csprojResolveAssemblyReference.cache
+C:\Users\Spencer\Documents\Git\stunning-garbanzo\TextToSpeech\obj\Debug\TextToSpeech.Properties.Resources.resources
+C:\Users\Spencer\Documents\Git\stunning-garbanzo\TextToSpeech\obj\Debug\TextToSpeech.csproj.GenerateResource.Cache
+C:\Users\Spencer\Documents\Git\stunning-garbanzo\TextToSpeech\obj\Debug\TextToSpeech.exe
+C:\Users\Spencer\Documents\Git\stunning-garbanzo\TextToSpeech\obj\Debug\TextToSpeech.pdb
