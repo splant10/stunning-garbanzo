@@ -66,5 +66,44 @@ namespace TextToSpeech
                 }
             }
         }
+
+        static string tempfileLocation = System.AppDomain.CurrentDomain.BaseDirectory.ToString() + "\\temp.wav";
+        // Create a SoundPlayer instance to play output audio file.
+        System.Media.SoundPlayer m_SoundPlayer = new System.Media.SoundPlayer(tempfileLocation);
+        // Play button click
+        // Doesn't yet account for blank (spaces) input
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (richTextBox1.Text.Length > 0)
+            {
+                // Do speech stuff
+                using (SpeechSynthesizer synth = new SpeechSynthesizer())
+                {
+                    // Configure the audio output. 
+                    synth.SetOutputToWaveFile(tempfileLocation,
+                      new SpeechAudioFormatInfo(32000, AudioBitsPerSample.Sixteen, AudioChannel.Mono));
+
+                    // Build a prompt.
+                    PromptBuilder builder = new PromptBuilder();
+                    builder.AppendText(richTextBox1.Text);
+
+                    // Speak the prompt.
+                    synth.Speak(builder);
+                    m_SoundPlayer.Play();
+                }
+            }
+        }
+
+        // Stop button
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                m_SoundPlayer.Stop();
+            }
+            catch
+            {
+            }
+        }
     }
 }
