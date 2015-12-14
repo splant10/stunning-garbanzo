@@ -3,6 +3,20 @@
  * A text to speech app that allows a user to paste in text to save as a .wav file for later listening
  * Heavy use of SpeechSynthesizer, and this reference:
  * https://msdn.microsoft.com/en-us/library/ms586885(v=vs.110).aspx
+ * 
+ *    Copyright 2015 Spencer Plant
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 
@@ -16,7 +30,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
-
+using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.parser;
 using System.IO;
 using System.Speech.Synthesis;
 using System.Speech.AudioFormat;
@@ -47,7 +62,7 @@ namespace TextToSpeech
                 string filename = openFileDialog1.FileName;
                 fileNameBox.Text = filename;
 
-                string filetype = Path.GetExtension(filename);
+                string filetype = System.IO.Path.GetExtension(filename);
                 Console.WriteLine(filetype);
                 // Handle the nasty little case of PDFs
                 if (filetype == ".pdf")
@@ -127,6 +142,24 @@ namespace TextToSpeech
                 // Speak to the wav file
                 synth.Speak(builder);
             }
+        }
+    }
+}
+
+namespace TextToSpeech
+{
+    public static class PdfTextGetter
+    {
+        public static string getPdfText(string path)
+        {
+            PdfReader reader = new PdfReader(path);
+            string text = string.Empty;
+            for (int page = 1; page <= reader.NumberOfPages; page++)
+            {
+                text += PdfTextExtractor.GetTextFromPage(reader, page);
+            }
+            reader.Close();
+            return text;
         }
     }
 }

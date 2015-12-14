@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextToSpeech", "TextToSpeech\TextToSpeech.csproj", "{06C21D25-5E2D-49D5-B799-F7375F3AD62B}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupTTS", "SetupTTS\SetupTTS.vdproj", "{BB85FA44-469A-4EFD-9154-2C5BBA5A51A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{06C21D25-5E2D-49D5-B799-F7375F3AD62B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06C21D25-5E2D-49D5-B799-F7375F3AD62B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06C21D25-5E2D-49D5-B799-F7375F3AD62B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB85FA44-469A-4EFD-9154-2C5BBA5A51A4}.Debug|Any CPU.ActiveCfg = Debug
+		{BB85FA44-469A-4EFD-9154-2C5BBA5A51A4}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
