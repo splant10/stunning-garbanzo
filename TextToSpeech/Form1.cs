@@ -61,7 +61,8 @@ namespace TextToSpeech
                 }
                 else // RTF or Text format
                 {
-
+                    string filetext = System.IO.File.ReadAllText(@filename);
+                    richTextBox1.Text = filetext;
                 }
             }
         }
