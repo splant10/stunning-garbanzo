@@ -78,7 +78,7 @@ namespace TextToSpeech
         {
             if (playOrPause == 0) // Play button is clicked. 
             {
-                // Should change to a "pause" button but need to listen for SpeakCompleted event.
+                // TODO Should change to a "pause" button but need to listen for SpeakCompleted event.
 
                 if (richTextBox1.Text.Length > 0)
                 {
