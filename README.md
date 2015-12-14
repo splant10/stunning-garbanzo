@@ -9,8 +9,6 @@ This app uses [this](https://msdn.microsoft.com/en-us/library/ms586885(v=vs.110)
 
 License
 =======
-   GiftCarder: Android App for trading gift cards
-   
    Copyright 2015 Spencer Plant
 
    Licensed under the Apache License, Version 2.0 (the "License");
