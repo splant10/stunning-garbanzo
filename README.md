@@ -24,4 +24,4 @@ License
    limitations under the License.
 
 # The Future
-Well I haven't done anything yet so practically the entire project is in the future. But beyond what I've described, perhaps I'll try to work in functionality such that someone could take a picture of physical notes, and then provide that image or images as the text source.
+Perhaps I'll try to work in functionality such that someone could take a picture of physical notes, and then provide that image or images as the text source.
