@@ -34,7 +34,7 @@ namespace TextToSpeech
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             // Set Filter options for dialog box
-            openFileDialog1.Filter = "Text|*.txt|PDF|*.pdf|RTF|*.rtf";
+            openFileDialog1.Filter = "PDF|*.pdf|Text|*.txt|Rich Text Format|*.rtf";
             openFileDialog1.FilterIndex = 1;
 
             // Show load file dialog
@@ -58,6 +58,10 @@ namespace TextToSpeech
                     } catch {
                         richTextBox1.Text = "There was a problem loading that file.";
                     }
+                }
+                else // RTF or Text format
+                {
+
                 }
             }
         }
