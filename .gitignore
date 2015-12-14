@@ -1,0 +1,3 @@
+# ignore the generated exe and pdb
+TextToSpeech/bin/Debug/*.exe
+TextToSpeech/bin/Debug/*.pdb
