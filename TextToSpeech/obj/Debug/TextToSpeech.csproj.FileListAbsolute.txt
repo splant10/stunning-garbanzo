@@ -7,3 +7,6 @@ C:\Users\Spencer\Documents\Git\stunning-garbanzo\TextToSpeech\obj\Debug\TextToSp
 C:\Users\Spencer\Documents\Git\stunning-garbanzo\TextToSpeech\obj\Debug\TextToSpeech.csproj.GenerateResource.Cache
 C:\Users\Spencer\Documents\Git\stunning-garbanzo\TextToSpeech\obj\Debug\TextToSpeech.exe
 C:\Users\Spencer\Documents\Git\stunning-garbanzo\TextToSpeech\obj\Debug\TextToSpeech.pdb
+C:\Users\Spencer\Documents\Git\stunning-garbanzo\TextToSpeech\bin\Debug\itextsharp.dll
+C:\Users\Spencer\Documents\Git\stunning-garbanzo\TextToSpeech\bin\Debug\itextsharp.xml
+C:\Users\Spencer\Documents\Git\stunning-garbanzo\TextToSpeech\obj\Debug\TextToSpeech.Form1.resources

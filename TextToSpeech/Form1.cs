@@ -28,5 +28,38 @@ namespace TextToSpeech
         {
             InitializeComponent();
         }
+
+        // Load file button
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            // Set Filter options for dialog box
+            openFileDialog1.Filter = "Text|*.txt|PDF|*.pdf|RTF|*.rtf";
+            openFileDialog1.FilterIndex = 1;
+
+            // Show load file dialog
+            DialogResult result = openFileDialog1.ShowDialog();
+            // Test the result
+            if (result == DialogResult.OK)
+            {
+                // Get filename and location
+                string filename = openFileDialog1.FileName;
+                fileNameBox.Text = filename;
+
+                string filetype = Path.GetExtension(filename);
+                Console.WriteLine(filetype);
+                // Handle the nasty little case of PDFs
+                if (filetype == ".pdf")
+                {
+                    try
+                    {
+                        string pdfText = PdfTextGetter.getPdfText(filename);
+                        richTextBox1.Text = pdfText;
+                    } catch {
+                        richTextBox1.Text = "There was a problem loading that file.";
+                    }
+                }
+            }
+        }
     }
 }

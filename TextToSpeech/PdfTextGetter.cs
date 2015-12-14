@@ -6,11 +6,11 @@
 using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.parser;
 
-namespace PdfParser
+namespace TextToSpeech
 {
     public static class PdfTextGetter
     {
-        public static string pdfText(string path)
+        public static string getPdfText(string path)
         {
             PdfReader reader = new PdfReader(path);
             string text = string.Empty;
