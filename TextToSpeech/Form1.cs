@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 using System.IO;
 using System.Speech.Synthesis;
@@ -68,41 +69,53 @@ namespace TextToSpeech
         }
 
         static string tempfileLocation = System.AppDomain.CurrentDomain.BaseDirectory.ToString() + "\\temp.wav";
-        // Create a SoundPlayer instance to play output audio file.
-        System.Media.SoundPlayer m_SoundPlayer = new System.Media.SoundPlayer(tempfileLocation);
+        SpeechSynthesizer synth = new SpeechSynthesizer();
+
         // Play button click
         // Doesn't yet account for blank (spaces) input
+        int playOrPause = 0; // 0 = Play button is displayed, 1 = Pause button is displayed
         private void button2_Click(object sender, EventArgs e)
         {
-            if (richTextBox1.Text.Length > 0)
+            if (playOrPause == 0) // Play button is clicked. 
             {
-                // Do speech stuff
-                using (SpeechSynthesizer synth = new SpeechSynthesizer())
+                // Should change to a "pause" button but need to listen for SpeakCompleted event.
+
+                if (richTextBox1.Text.Length > 0)
                 {
                     // Configure the audio output. 
-                    synth.SetOutputToWaveFile(tempfileLocation,
-                      new SpeechAudioFormatInfo(32000, AudioBitsPerSample.Sixteen, AudioChannel.Mono));
-
-                    // Build a prompt.
-                    PromptBuilder builder = new PromptBuilder();
-                    builder.AppendText(richTextBox1.Text);
-
-                    // Speak the prompt.
-                    synth.Speak(builder);
-                    m_SoundPlayer.Play();
+                    synth.SetOutputToDefaultAudioDevice();
+                    // Speak the text box
+                    synth.SpeakAsync(richTextBox1.Text);
                 }
             }
         }
 
-        // Stop button
+        // Stop button click
         private void button3_Click(object sender, EventArgs e)
         {
             try
             {
-                m_SoundPlayer.Stop();
+                synth.SpeakAsyncCancelAll();
             }
             catch
             {
+            }
+        }
+
+        // Save button click
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = ".WAV|*.wav";
+            saveFileDialog1.RestoreDirectory = true;
+            DialogResult result = saveFileDialog1.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                string filename = saveFileDialog1.FileName;
+                synth.SetOutputToWaveFile(filename, new SpeechAudioFormatInfo(32000, AudioBitsPerSample.Sixteen, AudioChannel.Mono));
+                // Speak to the wav file
+                synth.Speak(richTextBox1.Text);
             }
         }
     }
