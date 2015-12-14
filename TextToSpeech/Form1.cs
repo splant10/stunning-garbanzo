@@ -69,7 +69,7 @@ namespace TextToSpeech
         }
 
         static string tempfileLocation = System.AppDomain.CurrentDomain.BaseDirectory.ToString() + "\\temp.wav";
-        SpeechSynthesizer synth = new SpeechSynthesizer();
+        static SpeechSynthesizer synth = new SpeechSynthesizer();
 
         // Play button click
         // Doesn't yet account for blank (spaces) input
@@ -84,8 +84,13 @@ namespace TextToSpeech
                 {
                     // Configure the audio output. 
                     synth.SetOutputToDefaultAudioDevice();
-                    // Speak the text box
-                    synth.SpeakAsync(richTextBox1.Text);
+
+                    // Build a prompt. This is so the speaker doesn't pause after EVERY line
+                    PromptBuilder builder = new PromptBuilder();
+                    builder.AppendText(richTextBox1.Text);
+
+                    // Speak the prompt
+                    synth.SpeakAsync(builder);
                 }
             }
         }
@@ -114,8 +119,13 @@ namespace TextToSpeech
             {
                 string filename = saveFileDialog1.FileName;
                 synth.SetOutputToWaveFile(filename, new SpeechAudioFormatInfo(32000, AudioBitsPerSample.Sixteen, AudioChannel.Mono));
+
+                // Build a prompt. This is so the speaker doesn't pause after EVERY line
+                PromptBuilder builder = new PromptBuilder();
+                builder.AppendText(richTextBox1.Text);
+
                 // Speak to the wav file
-                synth.Speak(richTextBox1.Text);
+                synth.Speak(builder);
             }
         }
     }
