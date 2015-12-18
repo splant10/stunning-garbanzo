@@ -9,7 +9,7 @@ This app uses [this](https://msdn.microsoft.com/en-us/library/ms586885(v=vs.110)
 
 License
 =======
-   Copyright 2015 Spencer Plant
+   Copyright 2015 Spencer Plant, Wilson Quon
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -24,4 +24,4 @@ License
    limitations under the License.
 
 # The Future
-Perhaps I'll try to work in functionality such that someone could take a picture of physical notes, and then provide that image or images as the text source.
+Perhaps we'll try to work in functionality such that someone could take a picture of physical notes, and then provide that image or images as the text source.
