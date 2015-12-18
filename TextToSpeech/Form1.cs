@@ -63,7 +63,6 @@ namespace TextToSpeech
                 fileNameBox.Text = filename;
 
                 string filetype = System.IO.Path.GetExtension(filename);
-                Console.WriteLine(filetype);
                 // Handle the nasty little case of PDFs
                 if (filetype == ".pdf")
                 {
@@ -140,7 +139,7 @@ namespace TextToSpeech
                 builder.AppendText(richTextBox1.Text);
 
                 // Speak to the wav file
-                synth.Speak(builder);
+                synth.SpeakAsync(builder);
             }
         }
     }
