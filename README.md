@@ -7,6 +7,17 @@ So I've seen a couple text to mp3 apps out there but they're kinda costly. Basic
 
 This app uses [this](https://msdn.microsoft.com/en-us/library/ms586885(v=vs.110).aspx) reference as its messiah, since I'd be far and away lost without it. Credit to the Microsoft Developer Network.
 
+# Notes for forkers
+In order for the solution to open in Visual Studio without errors, you'll need to have the 
+
+[Microsoft Visual Studio **2013** Installer Projects extension](https://visualstudiogallery.msdn.microsoft.com/9abe329c-9bba-44a1-be59-0fbf6151054d/file/130817/3/VSI_bundle.exe)
+
+or the
+
+[Microsoft Visual Studio **2015** Installer Projects extension](https://visualstudiogallery.msdn.microsoft.com/f1cc3f3e-c300-40a7-8797-c509fb8933b9/file/171165/2/VSI_bundle.exe)
+
+and you may have to reinstall the iTextSharp package (Project > Manage NuGet Packages)
+
 License
 =======
    Copyright 2015 Spencer Plant, Wilson Quon
