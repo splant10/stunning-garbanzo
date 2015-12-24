@@ -43,6 +43,7 @@ namespace TextToSpeech
         public Form1()
         {
             InitializeComponent();
+            radioButton1.Checked = true;
         }
 
         // Load file button
@@ -140,6 +141,24 @@ namespace TextToSpeech
 
                 // Speak to the wav file
                 synth.SpeakAsync(builder);
+            }
+        }
+
+        // Choose Male voice
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                synth.SelectVoiceByHints(VoiceGender.Male);
+            }
+        }
+
+        // Choose Female voice
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked)
+            {
+                synth.SelectVoiceByHints(VoiceGender.Female);
             }
         }
     }
