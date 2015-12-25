@@ -261,6 +261,11 @@ namespace TextToSpeech
     }
 }
 
+
+
+// Pdf Text Getting
+// from Parsing PDF Files using iTextSharp (C#, .NET):
+// http://www.squarepdf.net/parsing-pdf-files-using-itextsharp
 namespace TextToSpeech
 {
     public static class PdfTextGetter
