@@ -161,6 +161,103 @@ namespace TextToSpeech
                 synth.SelectVoiceByHints(VoiceGender.Female);
             }
         }
+
+        // ///////////////// Cut, Copy, Paste, Undo \\\\\\\\\\\\\\\\\\\\\\ //
+        // https://msdn.microsoft.com/en-us/library/system.windows.forms.textboxbase.paste(v=vs.110).aspx
+        //
+        // Undo
+        private void undo()
+        {
+            // Determine if last operation can be undone in text box.   
+            if (richTextBox1.CanUndo == true)
+            {
+                // Undo the last operation.
+                richTextBox1.Undo();
+                // Clear the undo buffer to prevent last action from being redone.
+                richTextBox1.ClearUndo();
+            }
+        }
+        //
+        // Copy
+        private void copy()
+        {
+            // Ensure that text is selected in the text box.   
+            if (richTextBox1.SelectionLength > 0)
+                // Copy the selected text to the Clipboard.
+                richTextBox1.Copy();
+        }
+        //
+        // Cut
+        private void cut()
+        {
+            // Ensure that text is currently selected in the text box.   
+            if (richTextBox1.SelectedText != "")
+                // Cut the selected text in the control and paste it into the Clipboard.
+                richTextBox1.Cut();
+        }
+        //
+        // Paste
+        private void paste()
+        {
+            // Determine if there is any text in the Clipboard to paste into the text box.
+            if (Clipboard.GetDataObject().GetDataPresent(DataFormats.Text) == true)
+            {
+                // Determine if any text is selected in the text box.
+                if (richTextBox1.SelectionLength > 0)
+                {
+                    // Move selection to the point after the current selection and paste.
+                    richTextBox1.SelectionStart = richTextBox1.SelectionStart + richTextBox1.SelectionLength;
+                }
+                // Paste current text in Clipboard into text box.
+                richTextBox1.Paste();
+            }
+        }
+        // \\\\\\\\\\\\\\\\\\\\ End Cut, Copy, Paste, Undo ///////////////////// //
+
+
+
+        // ////////////////////// Menu bar Edit \\\\\\\\\\\\\\\\\\\\\\\\\
+        // 
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            undo();
+        }
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            copy();
+        }
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cut();
+        }
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            paste();
+        }
+        // \\\\\\\\\\\\\\\\\\\ End  Menu bar Edit //////////////////////////
+
+
+
+        // //////////////////// Right click menu \\\\\\\\\\\\\\\\\\\\\\\\
+        private void undoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            undo();
+        }
+        private void copyToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            copy();
+        }
+
+        private void cutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cut();
+        }
+
+        private void pasteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            paste();
+        }
+        // \\\\\\\\\\\\\\\\\\\\\\ End Right click menu //////////////////
     }
 }
 
